@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { TodoService } from '../../todo.service';
 import { iTodo } from '../../Models/todo';
 import { iUser } from '../../Models/user';
-import { iTodowithuser } from '../../Models/todowithuser';
 
 @Component({
   selector: 'app-users',
