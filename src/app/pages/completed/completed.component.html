@@ -1,1 +1,18 @@
-
+<div class="container mt-5">
+  <h2 class="mb-4">Completed Tasks</h2>
+  <div class="row">
+    <div class="col-md-6" *ngFor="let card of completed">
+      <div class="card mb-3 bg-success">
+        <div class="card-header">
+          <h5 class="card-title mb-0">{{ card.todo }}</h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">
+            Assigned to: {{ card.user.firstName }} {{ card.user.lastName }}
+          </h6>
+          <p class="card-text">Email: {{ card.user.email }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

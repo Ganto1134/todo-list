@@ -921,8 +921,12 @@ export class TodoService {
     });
   }
 
-  updateTodoStatus(todoId: number, status: boolean): void {
-    const todo = this.todos.find(t => t.id === todoId);
+  getCompletedTodos(): iTodowithuser[] {
+    return this.getTodosWithUsers().filter(todo => todo.completed);
+  }
+
+  updateTodoStatus(Id: number, status: boolean): void {
+    const todo = this.todos.find(t => t.id === Id);
     if (todo) {
       todo.completed = status;
     }

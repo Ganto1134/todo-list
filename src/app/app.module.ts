@@ -9,6 +9,7 @@ import { TodosComponent } from './pages/todos/todos.component';
 import { CompletedComponent } from './pages/completed/completed.component';
 import { UsersComponent } from './pages/users/users.component';
 import { Page404Component } from './pages/page404/page404.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { Page404Component } from './pages/page404/page404.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
