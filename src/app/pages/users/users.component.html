@@ -1,1 +1,42 @@
-<p>users works!</p>
+<div class="container mt-5">
+  <h2 class="mb-4">Users and the tasks they have</h2>
+  <div *ngFor="let card of usersWithTodos">
+    <div class="card mb-3 bg-info">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img
+            [src]="card.user.image"
+            class="card-img"
+            alt="{{ card.user.firstName }} {{
+              card.user.lastName
+            }} profile picture"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ card.user.firstName }} {{ card.user.lastName }}
+            </h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ card.user.email }}</h6>
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item bg-info b-0"
+                *ngFor="let todo of card.todos"
+              >
+                {{ todo.todo }} -
+                <span
+                  [ngClass]="{
+                    'bg-success': todo.completed,
+                    'bg-danger': !todo.completed
+                  }"
+                >
+                  {{ todo.completed ? "Completed" : "Not Completed" }}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

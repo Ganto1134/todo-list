@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { iTodo } from './Models/todo';
 import { iTodowithuser } from './Models/todowithuser';
 import { UsersService } from './users.service';
+import { iUser } from './Models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -923,6 +924,14 @@ export class TodoService {
 
   getCompletedTodos(): iTodowithuser[] {
     return this.getTodosWithUsers().filter(todo => todo.completed);
+  }
+
+  getUsersWithTodos(): Array<{ user: iUser, todos: iTodo[] }> {
+    const users = this.usersService.getUsers();
+    return users.map(user => ({
+      user,
+      todos: this.todos.filter(todo => todo.userId === user.id)
+    }));
   }
 
   updateTodoStatus(Id: number, status: boolean): void {
