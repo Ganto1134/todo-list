@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <h1 class="mb-4">Things that should be done by the end of the day</h1>
+  <div class="row">
+    <div class="col-md-6 mb-3" *ngFor="let card of todosWithUsers">
+      <div
+        class="card mb-3 h-100"
+        [ngClass]="{
+          completed: card.completed,
+          notCompleted: !card.completed
+        }"
+      >
+        <div class="card-header">
+          <h5 class="card-title mb-0">{{ card.todo }}</h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-2 text-muted">
+            {{ card.user.firstName }} {{ card.user.lastName }}
+          </h6>
+          <p class="card-text">Email: {{ card.user.email }}</p>
+        </div>
+        <div class="card-footer text-right">
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [checked]="card.completed"
+              (change)="toggleCompletion(card)"
+              id="completedCheckbox{{ card.id }}"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
