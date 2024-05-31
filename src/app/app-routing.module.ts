@@ -8,7 +8,8 @@ import { Page404Component } from './pages/page404/page404.component';
 const routes: Routes = [
   {
     path: '',
-    component: TodosComponent
+    component: TodosComponent,
+    pathMatch: 'full'
   },
   {
     path: 'completed',

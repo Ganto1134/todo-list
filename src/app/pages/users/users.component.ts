@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TodoService } from '../../todo.service';
 import { iTodo } from '../../Models/todo';
 import { iUser } from '../../Models/user';
+import { iTodowithuser } from '../../Models/todowithuser';
 
 @Component({
   selector: 'app-users',
@@ -16,6 +17,11 @@ export class UsersComponent {
 
   ngOnInit(): void {
     this.usersWithTodos = this.todoSvc.getUsersWithTodos();
+  }
+
+  toggleCompletion(todo: iTodo): void {
+    todo.completed = !todo.completed;
+    this.todoSvc.updateTodoStatus(todo.id, todo.completed);
   }
 
 }

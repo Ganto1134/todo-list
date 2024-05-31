@@ -1,4 +1,20 @@
 .router-outlet-container {
   padding: 1px 0;
-  background: linear-gradient(225deg, #6f4cbf, #e7c8c0);
+  background: linear-gradient(110deg, #452b81 0%, #ab66d0 25%, #8d4736 75%, #2a25c5 100%);
+}
+
+.completed {
+  background-color: rgb(34, 185, 236);
+}
+
+.completed:hover {
+  background-color: rgb(19, 136, 175);
+}
+
+.notCompleted {
+  background-color: rgb(212, 42, 42);
+}
+
+.notCompleted:hover {
+  background-color: rgb(177, 17, 17);
 }
